@@ -1,11 +1,16 @@
 {
   "name": "yeahdesk",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Библиотека для работы с API сервиса Yeahdesk",
   "keywords": [
     "yeahdesk",
     "client",
     "typescript"
+  ],
+  "main": "build/src/index.js",
+  "types": "build/src/index.d.ts",
+  "files": [
+    "build/src"
   ],
   "scripts": {
     "compile": "tsc",
