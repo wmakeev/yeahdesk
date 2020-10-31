@@ -20,6 +20,10 @@
     "build": "npm run lint:fix && npm run compile",
     "build:prod": "rm -rf build/ && npm run lint:fix && npm run compile:prod"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wmakeev/yeahdesk.git"
+  },
   "author": "Vitaliy V. Makeev",
   "license": "MIT",
   "devDependencies": {
