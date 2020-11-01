@@ -239,7 +239,7 @@ export class Yeahdesk {
     if (query.service) queryParams.service = query.service.join()
     // if (!query.includeDeleted) queryParams.not_deleted = 'true'
 
-    const res = await this.fetchApi<{ result: Person[] }>(
+    const res = await this.fetchApi<{ result: PersonContact[] }>(
       'GET',
       'api/clients/person/contacts/read',
       queryParams

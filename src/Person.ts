@@ -33,7 +33,10 @@ export interface BasicPersonContact {
 
 /** Контакт */
 export interface PersonContact extends BasicPersonContact {
-  /** Идентификатор контакта */
+  /** Идентификатор Клиента */
+  contact_id: string
+
+  /** Идентификатор Контакта */
   id: string
 
   /** Cервис, который создал данный контакт */
