@@ -1,6 +1,6 @@
 {
   "name": "yeahdesk",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Библиотека для работы с API сервиса Yeahdesk",
   "keywords": [
     "yeahdesk",
@@ -13,12 +13,15 @@
     "build/src"
   ],
   "scripts": {
-    "compile": "tsc",
-    "compile:prod": "rm -rf build/ && tsc --build tsconfig.prod.json",
+    "compile:dev": "tsc",
+    "compile": "rm -rf build/ && tsc --build tsconfig.prod.json",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "build": "npm run lint:fix && npm run compile",
-    "build:prod": "rm -rf build/ && npm run lint:fix && npm run compile:prod"
+    "build:dev": "npm run lint:fix && npm run compile:dev",
+    "build": "rm -rf build/ && npm run lint:fix && npm run compile",
+    "test": "node -r dotenv/config build/test/index.test.js",
+    "git:tag": "git tag \"v$(cat package.json | json version)\"",
+    "npm:publish": "npm run build && npm run test && npm publish && npm run git:tag && git push"
   },
   "repository": {
     "type": "git",
@@ -29,18 +32,20 @@
   "devDependencies": {
     "@types/blue-tape": "^0.1.33",
     "@types/node": "^12.19.1",
-    "@types/node-fetch": "^2.5.7",
-    "@typescript-eslint/eslint-plugin": "^4.5.0",
-    "@typescript-eslint/parser": "^4.5.0",
-    "@typescript-eslint/typescript-estree": "^4.5.0",
+    "@types/node-fetch": "^2.5.12",
+    "@typescript-eslint/eslint-plugin": "^4.29.0",
+    "@typescript-eslint/parser": "^4.29.0",
+    "@typescript-eslint/typescript-estree": "^4.29.0",
     "blue-tape": "^1.0.0",
-    "eslint": "^7.12.0",
-    "eslint-config-prettier": "^6.14.0",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "prettier": "^2.1.2",
-    "typescript": "^4.0.3",
-    "typescript-eslint-language-service": "^4.1.0"
+    "eslint-plugin-prettier": "^3.4.0",
+    "json": "^11.0.0",
+    "prettier": "^2.3.2",
+    "typescript": "^4.3.5",
+    "typescript-eslint-language-service": "^4.1.4"
   },
   "dependencies": {
     "node-fetch": "^2.6.1"
